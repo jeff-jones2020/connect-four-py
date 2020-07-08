@@ -58,8 +58,6 @@ def check_directions(coords, turn):
     return has_won
 
 def check_win(coords, turn):
-    # print('check_win called')
-    
     has_won = check_directions(coords, turn)
     print_board()
     print('\n')
@@ -96,8 +94,7 @@ print_board()
 print('\nValid inputs are from 1 and ' + str(GRID_BOUND - 1))
 
 while grid['count'] < grid['max']:
-    # input_row = input('Enter a column, ' + turn + ':  ')
-    input_row = str(math.ceil(random.uniform(0, 6)))
+    input_row = input('Enter a column, ' + turn + ':  ')
     print('---------------------------------------------------------')
     result = drop_piece(int(input_row), turn)
     if(result == -1):
