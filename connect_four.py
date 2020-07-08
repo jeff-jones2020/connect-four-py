@@ -1,6 +1,3 @@
-import math
-import random
-
 grid = {'count': 0}
 blank = '\u2298'
 circle = '\u2B24'
