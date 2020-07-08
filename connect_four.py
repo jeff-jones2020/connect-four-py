@@ -1,10 +1,13 @@
+import math
+import random
+
 grid = {'count': 0}
 blank = '\u2298'
 circle = '\u2B24'
 square = '\u2B1B'
 turn = circle
 
-GRID_BOUND = 11
+GRID_BOUND = 6
 grid['max'] = (GRID_BOUND - 1) * (GRID_BOUND - 1)
 
 CARDINALS = {
@@ -93,7 +96,8 @@ print_board()
 print('\nValid inputs are from 1 and ' + str(GRID_BOUND - 1))
 
 while grid['count'] < grid['max']:
-    input_row = input('Enter a column, ' + turn + ':  ')
+    # input_row = input('Enter a column, ' + turn + ':  ')
+    input_row = str(math.ceil(random.uniform(0, 6)))
     print('---------------------------------------------------------')
     result = drop_piece(int(input_row), turn)
     if(result == -1):
@@ -105,3 +109,5 @@ while grid['count'] < grid['max']:
         turn = square
     else:
         turn = circle
+    if grid['count'] == grid['max']:
+       print('tie game!')
