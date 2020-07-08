@@ -48,7 +48,6 @@ def check_directions(coords, turn):
                 counter = 0
             if counter == 4:
                 has_won = True
-                print('has won')
                 break
         if has_won:
             break
@@ -64,6 +63,8 @@ def check_win(coords, turn):
     
     if has_won:
         print(turn + ' won!')
+
+    return has_won
 
 
 # Places a marker on the grid.
@@ -84,17 +85,22 @@ def drop_piece(col, turn):
             return 0
 
     return -1
+
+
 reset_board(blank)
 
-print('Valid inputs are from 1 and ' + str(GRID_BOUND - 1))
+print_board()
+print('\nValid inputs are from 1 and ' + str(GRID_BOUND - 1))
 
 while grid['count'] < grid['max']:
     input_row = input('Enter a column, ' + turn + ':  ')
     print('---------------------------------------------------------')
-    is_valid = drop_piece(int(input_row), turn)
-    if(is_valid == -1):
+    result = drop_piece(int(input_row), turn)
+    if(result == -1):
         print(input_row + ' is not a valid input.')
         continue
+    if(result == 1):
+        break
     if(turn == circle):
         turn = square
     else:
