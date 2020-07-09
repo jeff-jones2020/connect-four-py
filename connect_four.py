@@ -1,5 +1,5 @@
 grid = {'count': 0}
-blank = '\u2298'
+blank = '\u25EF'
 circle = '\u2B24'
 square = '\u2B1B'
 turn = circle
